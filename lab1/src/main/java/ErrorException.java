@@ -1,5 +1,10 @@
 public class ErrorException  extends Exception{
-    public ErrorException(String error){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1995914308830893529L;
+
+	public ErrorException(String error){
         super(error);
     }
 }

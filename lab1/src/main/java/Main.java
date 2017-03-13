@@ -4,8 +4,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args){
-        Vector vector = new VectorImpl();
-
+       
         List<Double> vector1 = new ArrayList<>();
         List<Double> vector2  = new ArrayList<>();
         List<Double> sum = new ArrayList<>();
