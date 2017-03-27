@@ -18,7 +18,7 @@ public class RingSteps {
     	return Integer.parseInt(hour)+":"+Integer.parseInt(minute);
     }
 
-    @Given("A sleepy student sets $alarm to wake up to school")
+    @Given("A sleepy student sets alarm at $alarm to wake up to school")
     public void setAlarmClock(String alarm){
         this.alarm = new AlarmImpl();
         time = mock(Time.class);
@@ -26,12 +26,12 @@ public class RingSteps {
         this.alarm.addAlarmTime(time);
     }
 
-    @When("It would be close $time to ring alarm start ring")
+    @When("It would be $time when alarm start to ring")
     public void setCurrentTime(String time){
         this.alarm.setCurrentTime(time);
     }
 
-    @Then("The fact that sleepy student is awake is $result")
+    @Then("The sleepy student is awake is $result")
     public void checkIfStudentIsAwake(Boolean result){
         assertEquals(result, this.alarm.shouldRing());
     }
