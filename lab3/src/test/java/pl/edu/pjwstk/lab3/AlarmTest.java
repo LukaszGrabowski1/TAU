@@ -11,12 +11,12 @@ import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
 import static org.junit.Assert.*;
 
-import java.time.LocalTime;
+
 
 @RunWith(EasyMockRunner.class)
 public class AlarmTest {
 	
-	String now = LocalTime.now().getHour() +":"+ LocalTime.now().getMinute();
+	String now = Time.now().toString();
 	
 	@Rule
 	public EasyMockRule mocks = new EasyMockRule(this);
@@ -29,7 +29,7 @@ public class AlarmTest {
 	
 	@Test
 	public void alarmRingTest() {
-		LocalTime now = LocalTime.now();
+		Time now = Time.now();
 		alarm.addAlarmTime(now);
 		expect(alarm.shouldRing(now)).andReturn(true);
 		replay(alarm);
@@ -40,8 +40,8 @@ public class AlarmTest {
 	
 	@Test
 	public void alarmNotRingTest(){
-		LocalTime time = LocalTime.now();
-		LocalTime time1 = time;
+		Time time = Time.now();
+		Time time1 = time;
 		alarm.addAlarmTime(time);
 		expect(alarm.shouldRing(time1)).andReturn(false);
 		replay(alarm);
@@ -52,7 +52,7 @@ public class AlarmTest {
 	
 	@Test
 	public void alarmNotRingTwiceTest(){
-		LocalTime time = LocalTime.now();
+		Time time = Time.now();
 		alarm.addAlarmTime(time);
 		expect(alarm.shouldRing(time)).andReturn(true).andReturn(false);
 		replay(alarm);

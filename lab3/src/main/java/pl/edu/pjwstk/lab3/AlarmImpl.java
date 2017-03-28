@@ -1,24 +1,24 @@
 package pl.edu.pjwstk.lab3;
 
-import java.time.LocalTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AlarmImpl implements Alarm {
 	
 	private boolean state;
-	List<LocalTime> alarms;
-	private LocalTime previous;
+	List<Time> alarms;
+	private Time previous;
 	
 	public AlarmImpl(){
-		this.alarms = new ArrayList<LocalTime>();
+		this.alarms = new ArrayList<Time>();
 	};
-	public AlarmImpl(List<LocalTime> alarms){
+	public AlarmImpl(List<Time> alarms){
 		this.alarms = alarms;
 	}
 	
-	public Boolean shouldRing(LocalTime currentTime) {
-		for (LocalTime time : alarms) {
+	public Boolean shouldRing(Time currentTime) {
+		for (Time time : alarms) {
 			if(time == currentTime && this.previous != currentTime){
 					previous = currentTime;
 					return true;
@@ -31,20 +31,20 @@ public class AlarmImpl implements Alarm {
 		return false;
 	}
 		
-	public void addAlarmTime(LocalTime time) {
-		this.alarms.add(LocalTime.of(time.getHour(), time.getMinute()));
+	public void addAlarmTime(Time time) {
+		this.alarms.add(time);
 	}
 
-	public void clearAlarmTime(LocalTime time) {
-		this.alarms.remove(LocalTime.of(time.getHour(), time.getMinute()));
+	public void clearAlarmTime(Time time) {
+		this.alarms.remove(time);
 	}
 	
-	public List<LocalTime> getAlarms(){
+	public List<Time> getAlarms(){
 		return this.alarms;
 	}
 	
 	public void removeAllAlarms(){
 		this.alarms = null;
-		this.alarms = new ArrayList<LocalTime>();
+		this.alarms = new ArrayList<Time>();
 	}
 }
