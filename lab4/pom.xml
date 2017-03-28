@@ -31,6 +31,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <includes>
+                    <include>**/*Embedder.java</include>
                         <include>**/*Test.java</include>
                         <include>**/*Story.java</include>
                     </includes>

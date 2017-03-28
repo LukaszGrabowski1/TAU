@@ -1,4 +1,4 @@
-Scenario: Once upon the time really sleepy student oversleep to work 3 times. Now he need a great alarm clock to not oversleep again. But be careful the alarm clock rings only once.
+Scenario: Really sleepy student oversleep to school 3 times. The alarm clock can ring only once.
 
 Given A sleepy student sets alarm at 07:30 to wake up to school
 When It would be 07:30 when alarm start to ring
