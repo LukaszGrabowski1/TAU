@@ -9,6 +9,8 @@ else
 
 echo "<html><head>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link href='css/style.css' rel='stylesheet' type='text/css' />
+    <script src='js/jquery-3.2.0.js'></script>
     </head>
     <body>
     <form name='form-logowanie' action='login.php' method='post'>

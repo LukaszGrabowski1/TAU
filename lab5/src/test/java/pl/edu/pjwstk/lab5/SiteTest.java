@@ -1,6 +1,10 @@
 package pl.edu.pjwstk.lab5;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,13 +12,14 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -145,9 +150,25 @@ public class SiteTest {
 			e.printStackTrace();
 			assertTrue(false);
 		}
-		
+	    
 	}
 	
+	@Test
+	public void javascriptTest(){
+		JavascriptExecutor jsEx = (JavascriptExecutor)driver;
+		assertNotNull(jsEx);
+		jsEx.executeScript("function alertPop() { alert('success'); }; alertPop()");
+		Alert alert = driver.switchTo().alert();
+		assertEquals("success", alert.getText());
+		alert.dismiss();
+	}
+	
+	@Test
+	public void jQueryTest(){
+		driver.get("http://localhost:8888/logowanie/");
+		element = (WebElement) ((JavascriptExecutor)driver).executeScript("return $('.img')[0]");
+		assertNull(element);
+	}
 
 
 	@AfterClass
