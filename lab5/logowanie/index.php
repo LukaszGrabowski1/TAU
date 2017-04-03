@@ -9,7 +9,6 @@ else
 
 echo "<html><head>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-    <link href='css/style.css' rel='stylesheet' type='text/css' />
     </head>
     <body>
     <form name='form-logowanie' action='login.php' method='post'>
