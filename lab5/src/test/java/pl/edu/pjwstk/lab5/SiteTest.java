@@ -108,8 +108,10 @@ public class SiteTest {
 		WebElement loginInput = driver.findElement(By.name("login"));
 		WebElement passInput = driver.findElement(By.name("password"));
 		element = driver.findElement(By.name("zaloguj"));
+		
 		loginInput.sendKeys(login);
 		passInput.sendKeys("5678");
+		
 		assertEquals(login, loginInput.getAttribute("value"));
 		assertEquals("5678", passInput.getAttribute("value"));
 		element.click();
