@@ -134,7 +134,17 @@ public class SiteTest {
 			e.printStackTrace();
 			assertTrue(false);
 		}
-		
+	}
+	
+	@Test
+	public void LoggedTest(){
+		Cookie login = driver.manage().getCookieNamed("login");
+		Cookie logged = driver.manage().getCookieNamed("logged");
+		String url = driver.getCurrentUrl();
+		assertTrue(driver.manage().getCookies().size()>2); // 1 - autogenerowany cookie z ID sesji
+		assertEquals("1234", login.getValue());
+		assertEquals("trueLogged", logged.getValue());
+		assertTrue(url.contains("logged"));
 	}
 	
 	@Test
@@ -176,6 +186,10 @@ public class SiteTest {
 		driver.get("http://szuflandia.pjwstk.edu.pl/~s12735/logowanie/");
 		element = (WebElement) ((JavascriptExecutor)driver).executeScript("return $('.img')[0]");
 		assertNull(element);
+		
+		element = (WebElement) ((JavascriptExecutor)driver).executeScript("return $('#submitButton')[0]");
+		assertNotNull(element);
+		
 	}
 
 
