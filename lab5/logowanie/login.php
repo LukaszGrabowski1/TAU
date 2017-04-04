@@ -15,7 +15,15 @@ if(isset($_POST["login"]) && isset($_POST["password"]))
     }
     else{
         echo "<script>setTimeout(function(){window.location = './';}, 2000);</script>";
-        echo "Błędne dane logowania";
+        echo "<html><head>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+        <link href='css/style.css' rel='stylesheet' type='text/css' />
+        <script src='js/jquery-3.2.0.js'></script>
+        </head>
+        <body>
+            Błędne dane logowania
+        </body>
+        </html>";
         die();
     }
 

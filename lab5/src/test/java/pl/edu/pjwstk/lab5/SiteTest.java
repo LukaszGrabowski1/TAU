@@ -41,14 +41,16 @@ public class SiteTest {
 
 	@Test
 	public void loginFormExistTest(){
-		driver.get("http://localhost:8888/logowanie/");
+//		driver.get("http://localhost:8888/logowanie/");
+		driver.get("http://szuflandia.pjwstk.edu.pl/~s12735/logowanie/");
 		element = driver.findElement(By.tagName("form"));
 		assertNotNull(element);
 	}
 	
 	@Test
 	public void loginFormSubmitTest(){
-		driver.get("http://localhost:8888/logowanie/");
+//		driver.get("http://localhost:8888/logowanie/");
+		driver.get("http://szuflandia.pjwstk.edu.pl/~s12735/logowanie/");
 		element = driver.findElement(By.name("zaloguj"));
 		assertNotNull(element);
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
@@ -74,7 +76,8 @@ public class SiteTest {
 	
 	@Test
 	public void loginInorrectTest(){
-		driver.get("http://localhost:8888/logowanie/");
+//		driver.get("http://localhost:8888/logowanie/");
+		driver.get("http://szuflandia.pjwstk.edu.pl/~s12735/logowanie/");
 		WebElement loginInput = driver.findElement(By.name("login"));
 		WebElement passInput = driver.findElement(By.name("password"));
 		element = driver.findElement(By.name("zaloguj"));
@@ -104,7 +107,8 @@ public class SiteTest {
 	
 	@Test
 	public void loginCorrectTest(){
-		driver.get("http://localhost:8888/logowanie/");
+//		driver.get("http://localhost:8888/logowanie/");
+		driver.get("http://szuflandia.pjwstk.edu.pl/~s12735/logowanie/");
 		WebElement loginInput = driver.findElement(By.name("login"));
 		WebElement passInput = driver.findElement(By.name("password"));
 		element = driver.findElement(By.name("zaloguj"));
@@ -135,7 +139,8 @@ public class SiteTest {
 	
 	@Test
 	public void logoutTest(){
-		driver.get("http://localhost:8888/logowanie/");
+//		driver.get("http://localhost:8888/logowanie/");
+		driver.get("http://szuflandia.pjwstk.edu.pl/~s12735/logowanie/");
 		element = driver.findElement(By.linkText("Wyloguj się"));
 		assertNotNull(element);
 		element.click();
@@ -167,7 +172,8 @@ public class SiteTest {
 	
 	@Test
 	public void jQueryTest(){
-		driver.get("http://localhost:8888/logowanie/");
+//		driver.get("http://localhost:8888/logowanie/");
+		driver.get("http://szuflandia.pjwstk.edu.pl/~s12735/logowanie/");
 		element = (WebElement) ((JavascriptExecutor)driver).executeScript("return $('.img')[0]");
 		assertNull(element);
 	}
