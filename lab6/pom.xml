@@ -69,7 +69,8 @@
             <plugin>
                 <groupId>org.jbehave</groupId>
                 <artifactId>jbehave-maven-plugin</artifactId>
-                <executions>
+                <version>4.1</version>
+              <executions>
                     <execution>
                         <id>map-stories</id>
                         <phase>integration-test</phase>
