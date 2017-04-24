@@ -174,9 +174,9 @@ public class SiteTest {
 	public void javascriptTest(){
 		JavascriptExecutor jsEx = (JavascriptExecutor)driver;
 		assertNotNull(jsEx);
-		jsEx.executeScript("function alertPop() { alert('success'); }; alertPop()");
+		jsEx.executeScript("function alertPop() { alert('ok'); }; alertPop()");
 		Alert alert = driver.switchTo().alert();
-		assertEquals("success", alert.getText());
+		assertEquals("ok", alert.getText());
 		alert.dismiss();
 	}
 	
