@@ -1,6 +1,7 @@
 package pl.edu.pjatk.lab7.service;
 
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,8 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.mysql.jdbc.Driver;
 
 import pl.edu.pjatk.lab7.domain.Item;
 
@@ -37,8 +36,7 @@ public class ItemManager {
   
     
     public ItemManager() throws SQLException{
-    	Driver driver = new Driver();
-    	DriverManager.registerDriver(driver);
+    	
         connection = DriverManager.getConnection(url, USER, PASS);
         statement = connection.createStatement();
 

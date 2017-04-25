@@ -15,7 +15,8 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.6</version>
+      <version>6.0.6</version>
+      
     </dependency>
 
     <dependency>
@@ -52,6 +53,19 @@
         </webAppConfig>
       </configuration>
     </plugin>
+    <plugin>
+                    <groupId>com.lazerycode.jmeter</groupId>
+                    <artifactId>jmeter-maven-plugin</artifactId>
+                    <version>2.1.0</version>
+                    <executions>
+                        <execution>
+                            <id>jmeter-tests</id>
+                            <goals>
+                                <goal>jmeter</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
   </plugins>
 </build>
 </project>
