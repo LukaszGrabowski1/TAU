@@ -16,7 +16,7 @@
         <stringProp name="checkQuery">Select 1</stringProp>
         <stringProp name="connectionAge">5000</stringProp>
         <stringProp name="dataSource">jdbcConfig</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql://localhost:8889/test</stringProp>
+        <stringProp name="dbUrl">jdbc:mysql://localhost:8889/test?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</stringProp>
         <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
         <boolProp name="keepAlive">true</boolProp>
         <stringProp name="password">root</stringProp>
@@ -44,11 +44,17 @@
       <hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Create Request" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="queryType">Select Statement</stringProp>
-          <stringProp name="query">CREATE TABLE Items( `id` INT NOT NULL AUTO_INCREMENT ,`name` VARCHAR(350) NOT NULL , `dateOfUpdate` VARCHAR(10) NOT NULL ,`numberAvailable` INT NOT NULL , PRIMARY KEY (`id`));</stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="query">CREATE TABLE `Items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(350) NOT NULL,
+  `dateOfUpdate` varchar(10) NOT NULL,
+  `numberAvailable` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
-          <stringProp name="variableNames"></stringProp>
+          <stringProp name="variableNames">id,name,dateOfUpdate,numberAvailable</stringProp>
           <stringProp name="resultVariable"></stringProp>
           <stringProp name="queryTimeout"></stringProp>
           <stringProp name="resultSetHandler">Store as String</stringProp>
@@ -76,9 +82,9 @@
           <stringProp name="query">INSERT INTO Items VALUES(${id}, &apos;${name}&apos;, &apos;${dateOfUpdate}&apos;, ${numberAvailable});</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
-          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
           <stringProp name="resultVariable"></stringProp>
-          <stringProp name="variableNames">col1</stringProp>
+          <stringProp name="variableNames">id,name,dateOfUpdate,numberAvailable</stringProp>
           <stringProp name="queryTimeout"></stringProp>
           <stringProp name="resultSetHandler">Store as String</stringProp>
         </JDBCSampler>
