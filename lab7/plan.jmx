@@ -17,7 +17,7 @@
         <stringProp name="connectionAge">5000</stringProp>
         <stringProp name="dataSource">jdbcConfig</stringProp>
         <stringProp name="dbUrl">jdbc:mysql://localhost:8889/test</stringProp>
-        <stringProp name="driver">org.mysql.jdbc.Driver</stringProp>
+        <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
         <boolProp name="keepAlive">true</boolProp>
         <stringProp name="password">root</stringProp>
         <stringProp name="poolMax">10</stringProp>
@@ -73,7 +73,7 @@
       <hashTree>
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Insert Request" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
-          <stringProp name="query">INSERT INTO Items VALUES(&apos;${id}&apos;, &apos;${name}&apos;, &apos;${dateOfUpdate}&apos;, ${numberAvailable});</stringProp>
+          <stringProp name="query">INSERT INTO Items VALUES(${id}, &apos;${name}&apos;, &apos;${dateOfUpdate}&apos;, ${numberAvailable});</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="queryType">Select Statement</stringProp>
@@ -87,7 +87,7 @@
             <stringProp name="filename">/Users/lukasz/Desktop/MOCK_DATA.csv</stringProp>
             <stringProp name="fileEncoding"></stringProp>
             <stringProp name="variableNames">id,name,dateOfUpdate,numberAvailable</stringProp>
-            <stringProp name="delimiter">;</stringProp>
+            <stringProp name="delimiter">,</stringProp>
             <boolProp name="quotedData">true</boolProp>
             <boolProp name="recycle">false</boolProp>
             <boolProp name="stopThread">true</boolProp>
