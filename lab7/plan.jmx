@@ -45,7 +45,7 @@
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Create Request" enabled="true">
           <stringProp name="dataSource">jdbcConfig</stringProp>
           <stringProp name="queryType">Update Statement</stringProp>
-          <stringProp name="query">CREATE TABLE `Items` (
+          <stringProp name="query">CREATE TABLE IF NOT EXISTS `Items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(350) NOT NULL,
   `dateOfUpdate` varchar(10) NOT NULL,
