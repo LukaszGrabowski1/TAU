@@ -90,7 +90,7 @@
         </JDBCSampler>
         <hashTree>
           <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
-            <stringProp name="filename">/Users/lukasz/Desktop/MOCK_DATA.csv</stringProp>
+            <stringProp name="filename">./MOCK_DATA.csv</stringProp>
             <stringProp name="fileEncoding"></stringProp>
             <stringProp name="variableNames">id,name,dateOfUpdate,numberAvailable</stringProp>
             <stringProp name="delimiter">,</stringProp>
