@@ -27,6 +27,8 @@ public class ItemManagerImplTest {
     public void createItemTest() throws SQLException {
         Item item = new Item(12,"Gniazdko","15.12.2016",5);
         assertEquals(1,itemManager.addItem(item));
+        assertEquals("Gniazdko", itemManager.selectItem(item.getId()).getName());
+        assertEquals("15.12.2016", itemManager.selectItem(item.getId()).getDate());
         assertNotNull(itemManager.selectItem(item.getId()));
     }
 

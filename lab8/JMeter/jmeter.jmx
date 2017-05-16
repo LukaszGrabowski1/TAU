@@ -32,7 +32,7 @@
           <stringProp name="connectionAge">5000</stringProp>
           <stringProp name="dataSource">HSQLPool</stringProp>
           <stringProp name="dbUrl">jdbc:hsqldb:hsql://localhost/workdb</stringProp>
-          <stringProp name="driver">org.hsqldb.JDBCDriver</stringProp>
+          <stringProp name="driver">/Users/lukasz/Desktop/hsqldb-2.4.0/hsqldb/lib/org.hsqldb.jdbcDriver</stringProp>
           <boolProp name="keepAlive">true</boolProp>
           <stringProp name="password"></stringProp>
           <stringProp name="poolMax">10</stringProp>
