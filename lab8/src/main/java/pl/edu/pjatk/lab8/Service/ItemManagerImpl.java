@@ -26,7 +26,7 @@ public class ItemManagerImpl implements ItemManager {
     
     private String url = "jdbc:hsqldb:hsql://localhost/workdb";
     private String createTableNotes = "CREATE TABLE " +
-            "Items( id INT NOT NULL ,"
+            "Items( id INT IDENTITY NOT NULL ,"
             + "name VARCHAR(350) NOT NULL , " 
             + "dateOfUpdate VARCHAR(20) NOT NULL ,"
             + " numberAvailable INT NOT NULL ,"
