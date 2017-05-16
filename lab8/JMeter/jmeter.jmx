@@ -31,15 +31,15 @@
           <stringProp name="checkQuery">Select 1</stringProp>
           <stringProp name="connectionAge">5000</stringProp>
           <stringProp name="dataSource">HSQLPool</stringProp>
-          <stringProp name="dbUrl">jdbc:mysql://127.0.0.1:3306/test</stringProp>
-          <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+          <stringProp name="dbUrl">jdbc:hsqldb:hsql://localhost/workdb</stringProp>
+          <stringProp name="driver">org.hsqldb.jdbc.JDBCDriver</stringProp>
           <boolProp name="keepAlive">true</boolProp>
-          <stringProp name="password">root.123</stringProp>
+          <stringProp name="password"></stringProp>
           <stringProp name="poolMax">10</stringProp>
           <stringProp name="timeout">10000</stringProp>
           <stringProp name="transactionIsolation">DEFAULT</stringProp>
           <stringProp name="trimInterval">60000</stringProp>
-          <stringProp name="username">root</stringProp>
+          <stringProp name="username">sa</stringProp>
         </JDBCDataSource>
         <hashTree/>
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
@@ -80,7 +80,7 @@
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Reset AUTO_INCREMENT" enabled="true">
           <stringProp name="dataSource">HSQLPool</stringProp>
           <stringProp name="queryType">Callable Statement</stringProp>
-          <stringProp name="query">ALTER TABLE Items AUTO_INCREMENT = 1</stringProp>
+          <stringProp name="query">ALTER TABLE Items IDENTITY = 1</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="variableNames"></stringProp>
@@ -375,7 +375,7 @@
         <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Reset AUTO_INCREMENT" enabled="true">
           <stringProp name="dataSource">HSQLPool</stringProp>
           <stringProp name="queryType">Callable Statement</stringProp>
-          <stringProp name="query">ALTER TABLE Items AUTO_INCREMENT = 1</stringProp>
+          <stringProp name="query">ALTER TABLE Items IDENTITY = 1</stringProp>
           <stringProp name="queryArguments"></stringProp>
           <stringProp name="queryArgumentsTypes"></stringProp>
           <stringProp name="variableNames"></stringProp>
