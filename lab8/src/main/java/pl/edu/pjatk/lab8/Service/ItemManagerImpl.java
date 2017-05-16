@@ -21,14 +21,18 @@ public class ItemManagerImpl implements ItemManager {
 
     private Connection connection;
 
-    private String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-//    private String url = "jdbc:sqlite:/Users/lukasz/workspace/TAU/lab8/src/database/database.db";
+//    private String url = "jdbc:mysql://localhost:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+//    private String url = "jdbc:sqlite:/Users/lukasz/workspace/TAU/lab8/src/database/database.sqlite";
     
+    private String url = "jdbc:hsqldb:hsql://localhost/workdb";
     private String createTableNotes = "CREATE TABLE " +
-            "Items( `id` INT NOT NULL AUTO_INCREMENT ,"
-            + " `name` VARCHAR(350) NOT NULL , " +
-            "`dateOfUpdate` VARCHAR(20) NOT NULL ,"
-            + " `numberAvailable` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+            "Items( id INT NOT NULL ,"
+            + "name VARCHAR(350) NOT NULL , " 
+            + "dateOfUpdate VARCHAR(20) NOT NULL ,"
+            + " numberAvailable INT NOT NULL ,"
+            + " PRIMARY KEY (id))";
+    
+    
 
     private PreparedStatement addItemStmt;
     private PreparedStatement deleteItemStmt;
@@ -38,9 +42,8 @@ public class ItemManagerImpl implements ItemManager {
     private Statement statement;
 
     public ItemManagerImpl() throws SQLException{
-    	DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        connection = DriverManager.getConnection (url, "root", "root.123");
-//    	connection = DriverManager.getConnection(url);
+    	DriverManager.registerDriver(new org.hsqldb.jdbc.JDBCDriver());
+        connection = DriverManager.getConnection (url, "SA", "");
         statement = connection.createStatement();
 
         ResultSet rs = connection.getMetaData().getTables(null, null, "%",
@@ -59,10 +62,10 @@ public class ItemManagerImpl implements ItemManager {
             statement.executeUpdate(createTableNotes);
 
         addItemStmt = connection.prepareStatement("INSERT INTO Items (id,name, dateOfUpdate,numberAvailable) VALUES (?,?,?,?)");
-        editItemStmt = connection.prepareStatement("UPDATE `Items` SET `name`= ?,`dateOfUpdate`= ?,`numberAvailable`=? WHERE `id` = ?");
-        deleteItemStmt = connection.prepareStatement("DELETE FROM `Items` WHERE `id` = ?");
+        editItemStmt = connection.prepareStatement("UPDATE Items SET name= ?,dateOfUpdate= ?,numberAvailable=? WHERE id = ?");
+        deleteItemStmt = connection.prepareStatement("DELETE FROM Items WHERE id = ?");
         getAllItemsStmt = connection.prepareStatement("SELECT * FROM Items");
-        selectItemStmt = connection.prepareStatement("SELECT * FROM `Items` WHERE `id` = ?");
+        selectItemStmt = connection.prepareStatement("SELECT * FROM Items WHERE id = ?");
     }
 
     @Override
@@ -80,6 +83,7 @@ public class ItemManagerImpl implements ItemManager {
             addItemStmt.setInt(4,item.getAvailable());
 
             count = addItemStmt.executeUpdate();
+
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -158,11 +162,9 @@ public class ItemManagerImpl implements ItemManager {
     public int countRows() throws SQLException {
         int count = 0;
         try{
-            PreparedStatement stmt = connection.prepareStatement("select count(*) from Items");
-            ResultSet rs = stmt.executeQuery();
-
+            ResultSet rs = statement.executeQuery("SELECT count(*) as count FROM Items");
             while(rs.next()){
-                count = rs.getInt("count(*)");
+                count = rs.getInt("count");
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -172,7 +174,7 @@ public class ItemManagerImpl implements ItemManager {
 
     public void clear() throws SQLException{
         try{
-            PreparedStatement stmt = connection.prepareStatement("DELETE FROM `Items`");
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM Items");
            if(stmt.executeUpdate() == 1){
            }
         }catch(SQLException e){
