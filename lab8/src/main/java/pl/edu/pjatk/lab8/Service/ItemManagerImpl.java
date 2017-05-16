@@ -162,9 +162,9 @@ public class ItemManagerImpl implements ItemManager {
     public int countRows() throws SQLException {
         int count = 0;
         try{
-            ResultSet rs = statement.executeQuery("SELECT count(*) as count FROM Items");
+            ResultSet rs = statement.executeQuery("SELECT count(*) as numberOfItems FROM Items");
             while(rs.next()){
-                count = rs.getInt("count");
+                count = rs.getInt("numberOfItems");
             }
         }catch (SQLException e){
             e.printStackTrace();
