@@ -10,6 +10,8 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import pl.edu.pjatk.lab10.service.ItemManagerImpl;
+
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -24,6 +26,7 @@ public class ServiceTests {
         System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "" );
 
         JdbcDatabaseTester databaseTester = new PropertiesBasedJdbcDatabaseTester();
+        new ItemManagerImpl(databaseTester.getConnection().getConnection());
 
         FlatXmlDataSet dataSet = new FlatXmlDataSetBuilder().build(
                 ServiceTests.class.getClassLoader().
