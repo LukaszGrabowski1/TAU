@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <TASK ID="1" NAME="Wgrać nowy sytem"/>
+    <TASK ID="2" NAME="Kupić nową lodówkę"/>
+    <WORKER ID="3" LOGIN="kowal" PASSWORD="qherbi23yh14ih3"/>
+    <WORKER ID="4" LOGIN="radziej" PASSWORD="akhbefakhse"/>
+    <WORKER_TASK TASKS_ID="1" WORKER_ID="3" />
+</dataset>

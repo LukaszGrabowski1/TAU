@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <TASK ID="1" NAME="Wymiana żarówki"/>
+    <TASK ID="3" NAME="Przygotowanie śniadania"/>
+    <TASK ID="4" NAME="Przygotowanie bufetu"/>
+</dataset>
